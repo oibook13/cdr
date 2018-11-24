@@ -2,9 +2,9 @@
 Code for Centroid-based Dimensionality Reduction module
 
 ## Test Environment
-Ubuntu 16.04
-Python 3.6
-PyTorch 0.4.1
+* Ubuntu 16.04
+* Python 3.6
+* PyTorch 0.4.1
 
 ## Requirement
 Install pytorch, e.g., with conda
