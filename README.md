@@ -62,7 +62,6 @@ CUDA_VISIBLE_DEVICES=0,1 python train_timgnet_models.py \
 @article{anonymouspaper,
   title={Centroid-based Dimensionality Reduction Module for Image Classification},
   author={XXX},
-  journal={arXiv preprint arXiv:----},
   year={2018}
 }
 ```
