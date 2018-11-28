@@ -7,16 +7,23 @@ Code for Centroid-based Dimensionality Reduction module
 * PyTorch 0.4.1
 
 ## Requirement
-Install pytorch, e.g., with conda
+1. Install pytorch, e.g., with conda
 ```bash
 conda install pytorch torchvision -c pytorch
 ```
-Download [Tiny ImageNet](https://tiny-imagenet.herokuapp.com/)
+2. Download [Tiny ImageNet](https://tiny-imagenet.herokuapp.com/)
+Our directory structure is as follows
+```
+tinyimagenet/
+├── test
+├── train
+└── val
+```
 
 ## Usage
 To use CDR-2-R to classify images, run
 ```bash
-export checkpoint_dir='path_to_checkpoint_parent_folder/checkpoints/tinyimagenet/resnet101_cdr_pbl'
+export checkpoint_dir='checkpoints/tinyimagenet/resnet101_cdr'
 CUDA_VISIBLE_DEVICES=0,1 python train_timgnet_models.py \
 	--model resnet101 \
 	--pretrained \
@@ -25,7 +32,7 @@ CUDA_VISIBLE_DEVICES=0,1 python train_timgnet_models.py \
 	--lr 1e-03 \
 	--lr_decay 0.1 \
 	--lr_scheduler 10 20 \
-	--dataset 'path_to_tinyimagenet_parent_folder/tinyimagenet/images/' \
+	--dataset '/home/xxx/project/dataset/tinyimagenet/' \
 	--num_class 200 \
 	--input_img_size 224 \
 	--drm_type 'cdr' \
@@ -36,11 +43,11 @@ CUDA_VISIBLE_DEVICES=0,1 python train_timgnet_models.py \
 	--cdr_num_init_samples -1 \
 	--checkpoint $checkpoint_dir
 ```
-Specifically, you need to set checkpoint folder env variable **checkpoint_dir** and dataset folder **dataset**. To use CDR-2-M for classification, set **cdr_num_init_samples** to 100.
+Specifically, you need to set env variable **dataset** to your local dataset folder. To use CDR-2-M for classification, set **cdr_num_init_samples** to 100 and -1 indicates initialization using random numbers.
 
 To use fully-connected layer as a baseline, run
 ```bash
-export checkpoint_dir='path_to_checkpoint_parent_folder/checkpoints/tinyimagenet/resnet101_fc'
+export checkpoint_dir='checkpoints/tinyimagenet/resnet101_fc'
 CUDA_VISIBLE_DEVICES=0,1 python train_timgnet_models.py \
     --model resnet101 \
     --pretrained \
@@ -49,7 +56,7 @@ CUDA_VISIBLE_DEVICES=0,1 python train_timgnet_models.py \
     --lr 1e-03 \
     --lr_decay 0.1 \
     --lr_scheduler 10 20 \
-    --dataset 'path_to_tinyimagenet_parent_folder/tinyimagenet/images/' \
+    --dataset '/home/xxx/project/dataset/tinyimagenet/' \
     --num_class 200 \
     --input_img_size 224 \
     --drm_type 'fc' \
