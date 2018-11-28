@@ -11,7 +11,7 @@ Code for Centroid-based Dimensionality Reduction module
 ```bash
 conda install pytorch torchvision -c pytorch
 ```
-2. Download [Tiny ImageNet](https://tiny-imagenet.herokuapp.com/)
+2. Download [Tiny ImageNet](https://tiny-imagenet.herokuapp.com/).
 Our directory structure is as follows
 ```
 tinyimagenet/
